@@ -1,5 +1,3 @@
-Here’s the **README** content that you can directly copy and paste into your GitHub repository’s `README.md` file.
-
 
 # Kubernetes Commands Guide
 
