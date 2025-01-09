@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: my-statefulset
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-app
+  serviceName: "my-service"
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+  volumeClaimTemplates:
+    - metadata:
+        name: my-pvc
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 1Gi

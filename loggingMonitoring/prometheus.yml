@@ -1,0 +1,15 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: my-prometheus-rule
+spec:
+  groups:
+  - name: example.rules
+    rules:
+    - alert: HighCPUUsage
+      expr: cpu_usage_seconds_total{job="my-app"} > 80
+      for: 5m
+      labels:
+        severity: page
+      annotations:
+        summary: "High CPU usage detected"
